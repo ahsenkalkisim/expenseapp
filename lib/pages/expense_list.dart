@@ -1,51 +1,39 @@
 import 'package:expenseapp/models/expense.dart';
+import 'package:expenseapp/widgets/expense_item.dart';
 import 'package:flutter/material.dart';
 
-class ExpenseList extends StatefulWidget {
-  const ExpenseList({Key? key}) : super(key: key);
+class ExpensesPage extends StatefulWidget {
+  const ExpensesPage({Key? key}) : super(key: key);
 
   @override
-  _ExpenseListState createState() => _ExpenseListState();
+  _ExpensesPageState createState() => _ExpensesPageState();
 }
 
-class _ExpenseListState extends State<ExpenseList> {
-  // dummy data
-  final List<Expense> expenses = [
-    Expense(
-        name: "Yiyecek",
-        price: 200,
-        date: DateTime.now(),
-        category: Category.food),
-    Expense(
-        name: "Flutter Udemy Course",
-        price: 200,
-        date: DateTime.now(),
-        category: Category.education),
-  ]; // firebase,veritabanı
-
+class _ExpensesPageState extends State<ExpensesPage> {
+  List<Expense> expenses = [
+    Expense(name: "Yemek", price: 500, date: DateTime.now()),
+    Expense(name: "Yemek", price: 500, date: DateTime.now()),
+  ];
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBox(
-            height: 300,
-            child: Text("Grafik"),
-          ),
-          Expanded(
-            child: ListView.builder(
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        const SizedBox(
+          height: 150,
+          child: Text("Grafik Bölümü"),
+        ),
+        Expanded(
+          child: ListView.builder(
               itemCount: expenses.length,
               itemBuilder: (context, index) {
-                return Text(expenses[index].name);
-              },
-            ),
-          ),
-        ],
-      ),
+                return ExpenseItem(expenses[index]);
+              }),
+        ),
+        const SizedBox(
+          height: 150,
+          child: Text("Burası bottom bar."),
+        )
+      ]),
     );
   }
-
-  
 }
