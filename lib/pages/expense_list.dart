@@ -3,7 +3,8 @@ import 'package:expenseapp/widgets/expense_item.dart';
 import 'package:flutter/material.dart';
 
 class ExpensesPage extends StatefulWidget {
-  const ExpensesPage({Key? key}) : super(key: key);
+  const ExpensesPage(this.expenses, {Key? key}) : super(key: key);
+  final List<Expense> expenses;
 
   @override
   _ExpensesPageState createState() => _ExpensesPageState();
@@ -20,9 +21,9 @@ class _ExpensesPageState extends State<ExpensesPage> {
         ),
         Expanded(
           child: ListView.builder(
-              itemCount: expenses.length,
+              itemCount: widget.expenses.length,
               itemBuilder: (context, index) {
-                return ExpenseItem(expenses[index]);
+                return ExpenseItem(widget.expenses[index]);
               }),
         ),
         const SizedBox(

@@ -40,7 +40,7 @@ class _MainPageState extends State<MainPage> {
         ],
         centerTitle: true,
       ),
-      body: const ExpensesPage(),
+      body: ExpensesPage(expenses),
     );
   }
 }
