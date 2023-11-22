@@ -10,10 +10,6 @@ class ExpensesPage extends StatefulWidget {
 }
 
 class _ExpensesPageState extends State<ExpensesPage> {
-  List<Expense> expenses = [
-    Expense(name: "Yemek", price: 500, date: DateTime.now()),
-    Expense(name: "Yemek", price: 500, date: DateTime.now()),
-  ];
   @override
   Widget build(BuildContext context) {
     return Center(
