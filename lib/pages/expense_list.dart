@@ -23,7 +23,15 @@ class _ExpensesPageState extends State<ExpensesPage> {
           child: ListView.builder(
               itemCount: widget.expenses.length,
               itemBuilder: (context, index) {
-                return ExpenseItem(widget.expenses[index]);
+                return Dismissible(
+                    key: ValueKey(widget.expenses[index]),
+                    child: ExpenseItem(widget.expenses[index]),
+                    onDismissed: (direction) {
+                      if(direction == DismissDirection.startToEnd){
+                        //soldab sağa ise
+                      }
+                      print(widget.expenses[index]);
+                    },);
               }),
         ),
         const SizedBox(
